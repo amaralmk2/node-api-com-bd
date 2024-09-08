@@ -6,14 +6,13 @@ app.use(express.json());
 
 const users = [];
 
-app.post('/usuarios', (req: Request,res: Response) =>{
+app.post('/usuarios', (req,res) =>{
     
     users.push(req.body);
-
-    res.send('ok, POST aqui!!');
+    res.status(201).json(req.body);
 })
 
-app.get('/usuarios', (req: Request, res: Response) => {
+app.get('/usuarios', (req, res) => {
     res.json(users);
 })
 
